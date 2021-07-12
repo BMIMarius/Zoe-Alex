@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" type="image/x-icon" href="https://orange.codeberryschool.com/content/images/project-assets/wedding-landing-favicon.png">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital@1&family=Merriweather&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+  <title>JS Bin</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Zoe &amp; Alex</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+<style id="jsbin-css">
+/*general setings*/
+
+* {
+  box-sizing: border-box;
+}
+
+/*Definește ritmul vertical al paginii.*/
+
+h1,h2,h3,
+ul,ol,
+p,
+img {
+  margin-bottom: 1.5rem;
+}
+
+/*Definește proprietățile obișnuite ale modelului cutie pentru containerele de pe pagină (secțiunile).*/
+
+.locations,
+.program,
+.gifts,
+.faq,
+.contact {
+  width: 95%;
+  margin: 1.5rem auto;
+  padding: .5rem 1rem;
+  text-align: center;
+}
+
+/*Configurează fundalul imaginii*/
+
+body {
+  background: url('https://orange.codeberryschool.com/content/images/project-assets/wedding-landing-background.png') repeat center;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.1125rem;
+  line-height: 1.5;
+  color: #444349;
+}
+
+/*Leagă fonturile externe și adaugă stilurile tipografice de bază.*/
+
+h1,
+h2 {
+  font-family:  'Great Vibes', cursive;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 1.5rem
+}
+
+/*Stilizează linkurile.*/
+
+a {
+  text-decoration: none;
+  color: #bd806e;
+}
+
+a:hover {
+  color: #eda087;
+  transition: color .15s ease-in-out;
+}
+
+/*Header styles*/
+
+/*Creează un antet pe întreaga pagină și adaugă-i o imagine de fundal de dimensiunea copertei.*/
+
+.cover {
+  background: url('https://orange.codeberryschool.com/content/images/project-assets/wedding-landing-cover.jpg') no-repeat 70% center/cover;/*daca scadem sau urcam 70% miscam imaginea ptr tel*/
+  display: table;
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+/*Centrează conținutul antetului atât pe verticală, cât și pe orizontală.*/
+
+.hero-text-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/*Creează un strat subtil în spatele textului pentru a-l face mai ușor de citit pe imagine.*/
+
+.hero-text {
+  margin: 0 auto;
+  padding: .625rem;
+  color: hsla(0,0%,100%,.9);
+  background: hsla(100,0%,0%,.5);/*este backgroundul negru */
+}
+
+.hero-text h1 {
+  font-size: 3.15rem;
+  color: #d2ba87;
+  margin-bottom: 0;/*Pentru a nega efectul declarației de marjă cu o singură direcție*/
+}
+
+.tagline {
+  font-size: 1.25rem;
+  letter-spacing: .15rem;/*spatiul dintre litere*/
+}
+
+/*Adaugă linia de sub slogan.*/
+
+.tagline::after {
+  display: block;
+  content: "";
+  background-color: #fff;
+  height: 1px;/*grosimea liniei*/
+  width: 12.515625rem;/*lungimea liniei*/
+  margin: .5rem auto;
+}
+
+.date {
+  font-size: 1.25rem;
+  letter-spacing: .15rem;
+  vertical-align: middle;
+}
+
+/*Adaugă linii subțiri înainte și după dată.*/
+
+.date::before,
+.date::after {
+  content: "";
+  display: inline-block;
+  background-color: #fff;
+  height: 1px;
+  width: 1.5rem;
+  vertical-align: middle;/*sa fie liniutele la mijloc*/
+  margin: 0 .5rem;/*sa indepartam putin liniutele de scris*/
+}
+
+/*LOCATIONS STYLES*/
+
+/*Fii atent la dimensiunea imaginilor și la fonturile utilizate*/
+
+.blurb img {
+  height: 7.5rem;/*marimea img*/
+}
+
+.blurb h3 {
+  font-weight: 700;/*grosimea literelor*/
+}
+
+.blurb div {
+  font-family: 'Muli', sans-serif;/*alege scrisul*/
+}
+
+/*Realizează un mic element separator după fiecare descriere.*/
+
+.blurb::after {
+  content: "";
+  display: block;
+  height: .1875rem;
+  width: 25vw;
+  margin: 1.5rem auto;
+  background-color: #444349;
+}
+
+/*PROGRAM STYLES*/
+
+/*Adaugă un fundal negru transparent în secțiunea Program.*/
+
+.program {
+  width: 100vw;/*Setează-l la lățime completă.*/
+  text-align: left;
+  background: hsla(100,0%,0%,.6);/*Adaugă un fundal negru transparent în secțiunea Program.*/
+  color: #d2ba87;/*culoare la scris*/
+  font-family: 'Muli', sans-serif;
+}
+
+.program h2 {
+  font-family: 'Great Vibes', cursive;
+  margin-top: 1rem;/*Pentru a ține cont de marjele inegale în comparație cu secțiunea anterioară.*/
+  text-align: center;/*numai h2*/
+}
+
+.program p {
+  font-style: italic;
+}
+
+.program ul {
+  letter-spacing: .025rem;
+}
+
+/*GIFTS STYLES*/
+
+.gifts img {
+  height: 7.5rem;/*Redimensionează cutiile de cadouri la aceeași mărime ca și imaginile prezentărilor*/
+}
+
+.gifts p:last-child {
+  margin-bottom: 0;/*Pentru a uniformiza marginile de jos și de sus ale acestei secțiuni.*/
+}
+
+/*FAQ STYLES*/
+
+.faq {
+  background: hsla(100,0%,0%,.6);/*Atribuie-i același fundal negru ca și secțiunii Program*/
+  color: #d2ba87;/*culoarea literelor*/
+  width: 100vw;
+  text-align: center;
+}
+
+.faq h2 {
+  margin-top: 1rem;/*Pentru a uniformiza marginile de sus și de jos*/
+}
+
+.faq p {
+  font-family: 'Muli', sans-serif;
+  text-align: left;/*scris in partea stanga*/
+}
+
+.question-group::after {
+  content:"";
+  display: block;
+  height: .1875rem;
+  width: 50vw;
+  margin: 1.5rem auto;
+  background-color: #d2ba87;
+}
+
+.question {
+  font-weight: 700;/*grosimea literelor*/
+  margin-bottom: .5rem;/*marginea de jos*/
+}
+
+.answer {
+  margin-bottom: 1.5rem;
+}
+
+/*FOOTER STYLES*/
+
+
+footer {
+  height: 10vh;/*Definește înălțimea și lățimea unui subsol responsiv.*/
+  width: 100vw;
+  background-color: #606060;/*Stabilește culoarea fundalului la #606060.*/
+  color: #fff;/*Redu dimensiunea fontului și stabilește culoarea acestuia la alb.*/
+  font-family: 'Muli', sans-serif;
+  display: table;
+  text-align: center;
+  font-size: .875rem;
+}
+
+.footer-wrapper {
+  display: table-cell;
+  vertical-align: middle;/*aliniere verticală mijloc*/
+  padding: .5rem 1rem;
+}
+
+.footer p {
+  margin-bottom: 0;
+}
+
+.footer small {
+  line-height: 1.5;
+}
+
+
+/*Pentru antet COVER*/
+
+
+/*Acestea se aplică doar la tablete și desktopuri:*/
+
+@media (min-width: 768px) {
+  .cover {
+    background: url('https://orange.codeberryschool.com/content/images/project-assets/wedding-landing-cover.jpg') no-repeat center/cover;/*Transformă sloganul principal în majuscule, mărește dimensiunea fontului pentru titlu, fă fundalul mai mic și scoate poziționarea specifică pentru dispozitivele mobile din setările elementului cover.*/
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-text {
+    padding: 1.25rem;
+    border-radius: 4px;
+    width: 50%;
+    /*Afișează descrierile locației una lângă alta într-un layout de trei coloane și îndepărtează separatorii.*/
+  }
+  
+  .hero-text h1 {
+    font-size: 7rem;
+  }
+  
+}
+
+/*Pentru descrierile locației:*/
+
+/*Afișează descrierile locației una lângă alta într-un layout de trei coloane și îndepărtează separatorii.*/
+
+@media (min-width: 768px) {
+  .blurb {
+    display: inline-block;
+    width: 30%;
+    padding: 1.5rem;
+    margin: .5rem;
+  }
+  
+  .blurb::after {
+    display: none;
+  }
+  
+}
+
+/*Pentru secțiunea programului:*/
+
+
+/*Centrează secțiunea programului.*/
+
+
+@media (min-width: 768px) {
+  .program-wrapper {
+    width: 30vw;
+    margin: 0 auto;
+  }
+}
+
+/*Pentru FAQ:*/
+
+/*Transformă FAQ (Întrebări frecvente) într-un layout cu trei coloane și îndepărtează-i separatorii.*/
+
+@media (min-width: 768px) {
+  .question-group {
+    display: inline-block;
+    width: 30%;
+    vertical-align: top;
+    padding: 1.5rem;
+    margin: .5rem;
+  }
+  
+  .question-group::after {
+    display: none;
+  }
+  
+  .question-group h3 {
+    text-align: left;
+  }
+  
+}
+
+
+/*Pentru subsol: footer*/
+
+/*Redu înălțimea subsolului.*/
+
+@media (min-width: 768px) {
+  footer {
+    min-height: 7vh;
+  }
+}
+</style>
+</head>
+<body>
+  <header class="cover">
+    <div class="hero-text-wrapper">
+      <div class="hero-text">
+        <div class="tagline">We're getting married!</div>
+        <h1>Zoe &amp; Alex</h1>
+        <span class="date">August 1, 2018</span>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="locations">
+      <h2>Locations</h2>
+      <div class="blurb">
+        <h3>Ceremony</h3>
+        <img src="https://orange.codeberryschool.com/content/images/project-assets/wedding-landing-ceremony.png" alt="Ceremony">
+        <div>St. Nicholas Church</div>
+        <div>2 Trinity Square, Budapest</div>
+      </div>
+      <div class="blurb">
+        <h3>Photos</h3>
+        <img src="https://orange.codeberryschool.com/content/images/project-assets/wedding-landing-photoshoot.png" alt="Photoshoot">
+        <div>Liberty Bastion</div>
+        <div>23 Wisdom Road, Budapest</div>
+      </div>
+      <div class="blurb">
+        <h3>Party</h3>
+        <img src="https://orange.codeberryschool.com/content/images/project-assets/wedding-landing-party.png" alt="Party">
+        <div>Heaven Lounge</div>
+        <div>14 Fairy Street, Budapest</div>
+      </div>
+    </section>
+    <section class="program">
+      <h2>Program</h2>
+      <div class="program-wrapper">
+        <p>"It's going to be somehow, that's for sure."</p>
+        <ul>
+          <li>13:45 – Wedding ceremony</li>
+          <li>14:30 – Photos</li>
+          <li>16:00 – Cocktails</li>
+          <li>18:00 – Dinner</li>
+          <li>22:00 – Cake</li>
+          <li>... - 4:00 – Dance until dawn</li>
+        </ul>
+      </div>
+    </section>
+    <section class="gifts">
+      <h2>Gifts</h2>
+      <p>The greatest gift for us is to have you there.</p>
+      <img src="https://orange.codeberryschool.com/content/images/project-assets/wedding-landing-gifts.png" alt="Gifts">
+      <p>Please, just bring yourself and have fun with us.</p>
+    </section>
+    <section class="faq">
+      <h2>Questions &amp; Answers</h2>
+      <div class="question-group">
+        <h3>Travel and accomodations</h3>
+        <p class="question">Will there be some kind of organized transfer?</p>
+        <p class="answer">No, we'll just meet at the church at 13:15.</p>
+        <p class="question">Where can I park?</p>
+        <p class="answer">Parking is free on the weekends in the 1st district. The locations are close to each other so you won't need your car.</p>
+        <p class="question">How can I get home at night?</p>
+        <p class="answer">The 916 bus is in service all night at the castle and it hits every major traffic hub in the city.</p>
+      </div>
+      <div class="question-group">
+        <h3>Food and festivities</h3>
+        <p class="question">I'd like to do some kind of surprise for you guys at the party. To whom should I talk about this?</p>
+        <p class="answer">Discuss it with Abigail Smith. Just drop her an email at <a href="mailto:abigail@awesomemail.com">abigail@awesomemail.com</a>.</p>
+        <p class="question">What should I wear? Do you have a dress code?</p>
+        <p class="answer">Wear what's comfortable to you. If it helps <a href="#" target="_blank">smart casual</a> / <a href="#" target="_blank">business casual</a> for the ladies and <a href="#" target="_blank">smart casual</a> / <a href="#" target="_blank">informal</a> for the gentlemen are perfect options.</p>
+        <p class="question">I would like some kind of special food (gluten-free, lactose-free, vegan etc.)</p>
+        <p class="answer">Drop us a line <a href="mailto:zoeandalex@awesomemail.com">here</a> and we'll find a way.</p>
+      </div>
+      <div class="question-group">
+        <h3>Other small stuff</h3>
+        <p class="question">I have a problem / question on the wedding day. With whom can I speak?</p>
+        <p class="answer">Jared Wright on this number: <a href="tel:+36300000000">+36 30 000 0000</a>.</p>
+        <p class="question">Can we bring kids?</p>
+        <p class="answer">Sure! We planned a whole toy / sweets corner for them.</p>
+        <p class="question">How do you feel about dogs? Can I bring mine?</p>
+        <p class="answer">We love dogs and you can absolutely bring yours. The Heaven Lounge is a dog-friendly place.</p>
+      </div>
+    </section>
+    <section class="contact">
+      <h2>Contact</h2>
+      <p>If you have any questions feel free to call / write us.</p>
+      <p>Phone: <a href="tel:+36300000000">+36 30 000 0000</a> (Zoe) / <a href="tel:+36300000000">+36 30 000 0000</a> (Alex)</p>
+      <p>Email: <a href="mailto:zoeandalex@awesomemail.com">zoeandalex@awesomemail.com</a></p>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-wrapper">
+      <p><small>Made with heart ♥ in Budapest ©2018 | Icons by <a href="http://www.flaticon.com/authors/becris" title="Becris">Becris</a> (<a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>)</small></p>
+    </div>
+  </footer>
+</body>
+</html>
+
+
+<script id="jsbin-source-css" type="text/css">/*general setings*/
+
+* {
+  box-sizing: border-box;
+}
+
+/*Definește ritmul vertical al paginii.*/
+
+h1,h2,h3,
+ul,ol,
+p,
+img {
+  margin-bottom: 1.5rem;
+}
+
+/*Definește proprietățile obișnuite ale modelului cutie pentru containerele de pe pagină (secțiunile).*/
+
+.locations,
+.program,
+.gifts,
+.faq,
+.contact {
+  width: 95%;
+  margin: 1.5rem auto;
+  padding: .5rem 1rem;
+  text-align: center;
+}
+
+/*Configurează fundalul imaginii*/
+
+body {
+  background: url('https://orange.codeberryschool.com/content/images/project-assets/wedding-landing-background.png') repeat center;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.1125rem;
+  line-height: 1.5;
+  color: #444349;
+}
+
+/*Leagă fonturile externe și adaugă stilurile tipografice de bază.*/
+
+h1,
+h2 {
+  font-family:  'Great Vibes', cursive;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 1.5rem
+}
+
+/*Stilizează linkurile.*/
+
+a {
+  text-decoration: none;
+  color: #bd806e;
+}
+
+a:hover {
+  color: #eda087;
+  transition: color .15s ease-in-out;
+}
+
+/*Header styles*/
+
+/*Creează un antet pe întreaga pagină și adaugă-i o imagine de fundal de dimensiunea copertei.*/
+
+.cover {
+  background: url('https://orange.codeberryschool.com/content/images/project-assets/wedding-landing-cover.jpg') no-repeat 70% center/cover;/*daca scadem sau urcam 70% miscam imaginea ptr tel*/
+  display: table;
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+/*Centrează conținutul antetului atât pe verticală, cât și pe orizontală.*/
+
+.hero-text-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/*Creează un strat subtil în spatele textului pentru a-l face mai ușor de citit pe imagine.*/
+
+.hero-text {
+  margin: 0 auto;
+  padding: .625rem;
+  color: hsla(0,0%,100%,.9);
+  background: hsla(100,0%,0%,.5);/*este backgroundul negru */
+}
+
+.hero-text h1 {
+  font-size: 3.15rem;
+  color: #d2ba87;
+  margin-bottom: 0;/*Pentru a nega efectul declarației de marjă cu o singură direcție*/
+}
+
+.tagline {
+  font-size: 1.25rem;
+  letter-spacing: .15rem;/*spatiul dintre litere*/
+}
+
+/*Adaugă linia de sub slogan.*/
+
+.tagline::after {
+  display: block;
+  content: "";
+  background-color: #fff;
+  height: 1px;/*grosimea liniei*/
+  width: 12.515625rem;/*lungimea liniei*/
+  margin: .5rem auto;
+}
+
+.date {
+  font-size: 1.25rem;
+  letter-spacing: .15rem;
+  vertical-align: middle;
+}
+
+/*Adaugă linii subțiri înainte și după dată.*/
+
+.date::before,
+.date::after {
+  content: "";
+  display: inline-block;
+  background-color: #fff;
+  height: 1px;
+  width: 1.5rem;
+  vertical-align: middle;/*sa fie liniutele la mijloc*/
+  margin: 0 .5rem;/*sa indepartam putin liniutele de scris*/
+}
+
+/*LOCATIONS STYLES*/
+
+/*Fii atent la dimensiunea imaginilor și la fonturile utilizate*/
+
+.blurb img {
+  height: 7.5rem;/*marimea img*/
+}
+
+.blurb h3 {
+  font-weight: 700;/*grosimea literelor*/
+}
+
+.blurb div {
+  font-family: 'Muli', sans-serif;/*alege scrisul*/
+}
+
+/*Realizează un mic element separator după fiecare descriere.*/
+
+.blurb::after {
+  content: "";
+  display: block;
+  height: .1875rem;
+  width: 25vw;
+  margin: 1.5rem auto;
+  background-color: #444349;
+}
+
+/*PROGRAM STYLES*/
+
+/*Adaugă un fundal negru transparent în secțiunea Program.*/
+
+.program {
+  width: 100vw;/*Setează-l la lățime completă.*/
+  text-align: left;
+  background: hsla(100,0%,0%,.6);/*Adaugă un fundal negru transparent în secțiunea Program.*/
+  color: #d2ba87;/*culoare la scris*/
+  font-family: 'Muli', sans-serif;
+}
+
+.program h2 {
+  font-family: 'Great Vibes', cursive;
+  margin-top: 1rem;/*Pentru a ține cont de marjele inegale în comparație cu secțiunea anterioară.*/
+  text-align: center;/*numai h2*/
+}
+
+.program p {
+  font-style: italic;
+}
+
+.program ul {
+  letter-spacing: .025rem;
+}
+
+/*GIFTS STYLES*/
+
+.gifts img {
+  height: 7.5rem;/*Redimensionează cutiile de cadouri la aceeași mărime ca și imaginile prezentărilor*/
+}
+
+.gifts p:last-child {
+  margin-bottom: 0;/*Pentru a uniformiza marginile de jos și de sus ale acestei secțiuni.*/
+}
+
+/*FAQ STYLES*/
+
+.faq {
+  background: hsla(100,0%,0%,.6);/*Atribuie-i același fundal negru ca și secțiunii Program*/
+  color: #d2ba87;/*culoarea literelor*/
+  width: 100vw;
+  text-align: center;
+}
+
+.faq h2 {
+  margin-top: 1rem;/*Pentru a uniformiza marginile de sus și de jos*/
+}
+
+.faq p {
+  font-family: 'Muli', sans-serif;
+  text-align: left;/*scris in partea stanga*/
+}
+
+.question-group::after {
+  content:"";
+  display: block;
+  height: .1875rem;
+  width: 50vw;
+  margin: 1.5rem auto;
+  background-color: #d2ba87;
+}
+
+.question {
+  font-weight: 700;/*grosimea literelor*/
+  margin-bottom: .5rem;/*marginea de jos*/
+}
+
+.answer {
+  margin-bottom: 1.5rem;
+}
+
+/*FOOTER STYLES*/
+
+
+footer {
+  height: 10vh;/*Definește înălțimea și lățimea unui subsol responsiv.*/
+  width: 100vw;
+  background-color: #606060;/*Stabilește culoarea fundalului la #606060.*/
+  color: #fff;/*Redu dimensiunea fontului și stabilește culoarea acestuia la alb.*/
+  font-family: 'Muli', sans-serif;
+  display: table;
+  text-align: center;
+  font-size: .875rem;
+}
+
+.footer-wrapper {
+  display: table-cell;
+  vertical-align: middle;/*aliniere verticală mijloc*/
+  padding: .5rem 1rem;
+}
+
+.footer p {
+  margin-bottom: 0;
+}
+
+.footer small {
+  line-height: 1.5;
+}
+
+
+/*Pentru antet COVER*/
+
+
+/*Acestea se aplică doar la tablete și desktopuri:*/
+
+@media (min-width: 768px) {
+  .cover {
+    background: url('https://orange.codeberryschool.com/content/images/project-assets/wedding-landing-cover.jpg') no-repeat center/cover;/*Transformă sloganul principal în majuscule, mărește dimensiunea fontului pentru titlu, fă fundalul mai mic și scoate poziționarea specifică pentru dispozitivele mobile din setările elementului cover.*/
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-text {
+    padding: 1.25rem;
+    border-radius: 4px;
+    width: 50%;
+    /*Afișează descrierile locației una lângă alta într-un layout de trei coloane și îndepărtează separatorii.*/
+  }
+  
+  .hero-text h1 {
+    font-size: 7rem;
+  }
+  
+}
+
+/*Pentru descrierile locației:*/
+
+/*Afișează descrierile locației una lângă alta într-un layout de trei coloane și îndepărtează separatorii.*/
+
+@media (min-width: 768px) {
+  .blurb {
+    display: inline-block;
+    width: 30%;
+    padding: 1.5rem;
+    margin: .5rem;
+  }
+  
+  .blurb::after {
+    display: none;
+  }
+  
+}
+
+/*Pentru secțiunea programului:*/
+
+
+/*Centrează secțiunea programului.*/
+
+
+@media (min-width: 768px) {
+  .program-wrapper {
+    width: 30vw;
+    margin: 0 auto;
+  }
+}
+
+/*Pentru FAQ:*/
+
+/*Transformă FAQ (Întrebări frecvente) într-un layout cu trei coloane și îndepărtează-i separatorii.*/
+
+@media (min-width: 768px) {
+  .question-group {
+    display: inline-block;
+    width: 30%;
+    vertical-align: top;
+    padding: 1.5rem;
+    margin: .5rem;
+  }
+  
+  .question-group::after {
+    display: none;
+  }
+  
+  .question-group h3 {
+    text-align: left;
+  }
+  
+}
+
+
+/*Pentru subsol: footer*/
+
+/*Redu înălțimea subsolului.*/
+
+@media (min-width: 768px) {
+  footer {
+    min-height: 7vh;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
